@@ -1,0 +1,17 @@
+classid,label,response
+0,person,warn
+1,bicycle,stop
+2,car,stop
+3,motorcycle,stop
+4,bus,stop
+5,train,stop
+6,truck,stop
+7,boat,water
+9,traffic light,sit
+10,fire hydrant,move
+12,street sign,warn
+13,stop sign,stop
+14,bench,warn
+16,cat,hello
+17,dog,hello
+77,teddy bear,hello
