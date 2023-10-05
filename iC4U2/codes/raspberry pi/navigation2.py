@@ -29,7 +29,7 @@ import threading
 
 stop = threading.Event()
 
-gmaps = googlemaps.Client(key='Ckient Key')
+gmaps = googlemaps.Client(key='Client Key')
 
 # Geocoding an address
 geocode_result = gmaps.geocode('1600 Amphitheatre Parkway, Mountain View, CA')
