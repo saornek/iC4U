@@ -24,14 +24,16 @@ _Tasks by [IAADP](https://iaadp.org/membership/iaadp-minimum-training-standards-
 - [ ] Test the code.
 - [ ] Take a promotional video.
 
-### To-Do For Elevator Tracker
-- [ ] Create a new dataset.
-- [ ] Add elevator images.
-- [ ] Label the elevator states (Open-Closed)
-- [ ] Train the dataset to a pytorch weight.
+### To-Do For Elevator Tracker*
+- [x] ~_Create a new dataset._ __Used premade public dataset__~ _Completed on 11/13/23_
+- [x] ~_Add elevator images._ __Used premade public dataset__~ _Completed on 11/13/23_
+- [x] ~_Label the elevator states (Open-Closed)_ __Used premade public dataset__~ _Completed on 11/13/23_
+- [x] ~Train the dataset to a pytorch weight.~ _Done on 11/13/23_
 - [ ] Write a code for iC4U to inform the person of the elevator and its state.
 - [ ] Test the code
 - [ ] Take a promotional video.
+
+The Dataset was made on Roboflow by user elevator. Link: [https://universe.roboflow.com/elevator-0iq4p/elevator-status](https://universe.roboflow.com/elevator-0iq4p/elevator-status)
 
 ### To-Do For Empty Seat Finder.
 - [ ] Create a new dataset.
