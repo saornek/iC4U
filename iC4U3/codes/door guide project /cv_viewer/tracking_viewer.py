@@ -92,15 +92,14 @@ def render_2D(left_display, img_scale, objects, is_tracking_on):
                 lineColor = (255,0,0)
                 lineThickness = 2
                 cv2.line(left_display, textHandPos, textKnobPos, lineColor, lineThickness)
+                recText = exporter.values(textHandPos[0] - textKnobPos[0], textHandPos[1] - textKnobPos[1]) # export for cleaner calculation.
+                cv2.putText(left_display, recText, (30,60)), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1.5, 255, 3)
 
             # Diplay Object distance to camera as text
             if np.isfinite(obj.position[2]):
                 text = str(round(abs(obj.position[2]), 1)) + "M"
                 text_position = (int(position_image[0] - 20), int(position_image[1]))
                 cv2.putText(left_display, text, text_position, cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.5, text_color, 1)
-                xDistance = (textHandPos[0] - textKnobPos[0])
-                yDistance = (textHandPos[1] - textKnobPos[1])
-                exporter.values(xDistance, yDistance) # export for cleaner calculation.
 
     # Here, overlay is as the left image, but with opaque masks on each detected objects
     cv2.addWeighted(left_display, 1, overlay, 0.0, 0.0, left_display)
