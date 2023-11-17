@@ -21,7 +21,11 @@ _Tasks by [IAADP](https://iaadp.org/membership/iaadp-minimum-training-standards-
   - [x] ~Make door undetectable in code.~ _Done on 08/04/23_
 - [x] ~Create a code which will calculate distance of hand and door knob~ _Done on 09/01/23_
 - [x] ~Add a code in which the guide dog guides the person's hand on the door knob.~ _Done on 09/23/23_
-- [ ] Test the code.
+- [x] ~Test the code.~ __TEST FAILED__ _Done on 09/23/23_
+- [x] ~Improve code for the guide dog guides the person's hand on the door knob.~ _Done on 11/14/23_
+- [x] ~Test the new code.~ __SUCCESSFUL__ _Done on 11/14/23_
+- [ ] Add sound guide code for testing purposes.
+- [ ] Final test
 - [ ] Take a promotional video.
 
 ### To-Do For Elevator Tracker*
