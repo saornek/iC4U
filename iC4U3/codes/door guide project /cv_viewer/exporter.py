@@ -1,13 +1,12 @@
 """
 Author: saornek
 Date: 08/04/2023
-Last Updated: 11/17/2023
-Status: Testing --> Sound Guidlines
+Last Updated: 11/25/2023
+Status: NOT TESTED --> Improved Sound Guidelines
 Purpose: iC4U3 Door Guide Project - Give distance between a visually impaired person's hand and the door knob.
-Update: Added sound guidelines.
+Update: Improved sound guidelines to say in queue.
 Notes:
 For testing purposes used the pygame.mixer library for audio output as it doesn't freeze the camera output.
-Needs cleaning and formatting
 """
 
 # Import Libraries
@@ -15,7 +14,6 @@ import serial
 from time import sleep
 
 # Import for TTS - TEST PURPOSES ONLY - Uncomment to test
-from gtts import gTTS
 from pygame import mixer
 
 mixer.init()
@@ -40,21 +38,20 @@ def values(x_value, y_value):
     else:
         y_read = "Y AXIS OK"
 
-    if ((y_read != prev_y_read) and (y_read != "Y AXIS OK") and (sayStatus == 0)):
+    # Y_READ SAY CODE
+    if (y_read != prev_y_read) and (y_read != "Y AXIS OK") and (sayStatus == 0):
         say(y_read)
         sayStatus = 0
         prev_y_read = y_read
-    elif ((y_read != prev_y_read) and (y_read == "Y AXIS OK") and (sayStatus == 0) and (repeatBlock == 0)):
-         say("Your hand is correct vertically.")
-         repeatBlock += 1
-         prev_y_read = y_read 
-         sayStatus = 1
-    elif ((y_read == "Y AXIS OK") and (sayStatus == 1) and (repeatBlock > 0)):
-            if (repeatBlock == 25):
-                sayStatus = 2
-                repeatBlock = 0
-            else:
-                repeatBlock += 1
+    else:
+        repeatBlock += 1
+        if (y_read != prev_y_read) and (repeatBlock == 1):
+            say("Your hand is correct vertically.")
+        elif (sayStatus == 0) and (repeatBlock == 25):
+            sayStatus = 1
+            repeatBlock = 0
+        prev_y_read = y_read 
+
 
     # X-AXIS Calculation (Left-Right)
     if x_value > errorCalculation:
@@ -64,33 +61,34 @@ def values(x_value, y_value):
     else:
         x_read = "X AXIS OK" 
 
-    if ((x_read != prev_x_read) and (x_read != "X AXIS OK") and (sayStatus == 2)):
+    # X_READ SAY CODE
+    if (x_read != prev_x_read) and (x_read != "X AXIS OK") and (sayStatus == 1):
         say(x_read)
-        sayStatus = 2
+        sayStatus = 1
         prev_x_read = x_read
-    elif ((x_read != prev_x_read) and (x_read == "X AXIS OK") and (sayStatus == 2)):
-        say("Your hand is correct horizontaly.")
-        sayStatus = 3
-        prev_x_read = x_read
-    elif ((y_read == "Y AXIS OK") and (sayStatus == 3) and (repeatBlock > 0)):
-        if (repeatBlock == 20):
-            sayStatus = 4
-            repeatBlock = 0
-        else:
-            repeatBlock += 1
-
-    return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)
-    
-
-    """if ((y_read == "Y AXIS OK") and (x_read == "X AXIS OK") and (sayStatus == 4)):
-        say("Your hand should be on the knob. You are ready to open the door.")
-        sayStatus = 5
-        return str("Y AXIS: Correct / X AXIS: Correct.")
     else:
+        repeatBlock += 1
+        if (sayStatus == 1) and (repeatBlock == 1):
+            say("Your hand is correct horizontaly.")
+        elif (sayStatus == 0) and (repeatBlock == 25):
+            sayStatus = 0
+            repeatBlock = 0
+        prev_x_read = x_read 
+
+    # FINAL SAY CODE
+    if (y_read == "Y AXIS OK") and (x_read == "X AXIS OK") and (sayStatus == 2) and (repeatBlock == 0):
+        say("Your hand is placed correctly. Please proceed to open the door.")
+        return str("Y AXIS: Correct / X AXIS: Correct")
+    else:
+        sayStatus = 0
         return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)
-    """
-    
-    # print("Y AXIS:", y_read, "X AXIS", x_read) #Uncomment to test.
+        
+
+
+
+
+    #print("Y AXIS:", y_read, "X AXIS", x_read) #Uncomment to test.
+    #return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)
 
 def say(text):
     # Create a gTTS object with the text
