@@ -1,0 +1,5 @@
+label, queue, state, response
+0, 2,Empty Elevator, The elevator is empty.
+1, 0, Closed Elevator, The elevator is not here yet please wait.
+2, 1, Open Elevator, The elevator is here.
+3, 2, Occupied Elevator, The elevator is occupied
