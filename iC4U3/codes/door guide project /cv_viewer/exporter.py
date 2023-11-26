@@ -1,13 +1,12 @@
 """
 Author: saornek
 Date: 08/04/2023
-Last Updated: 11/17/2023
-Status: Working --> Sound Guidlines
+Last Updated: 11/26/2023
+Status: Working --> Last message needs testing.
 Purpose: iC4U3 Door Guide Project - Give distance between a visually impaired person's hand and the door knob.
 Update: Cleaned and formatted. Horizontal and Vertical Correction Working.
 Notes:
 For testing purposes used the pygame.mixer library for audio output as it doesn't freeze the camera output.
-ADD LAST MESSAGE.
 """
 
 # Import Libraries
@@ -64,17 +63,13 @@ def values(x_value, y_value):
         sayStatus = 4
         prev_x_read = x_read
 
-    return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)
-    
-
-    """if ((y_read == "Y AXIS OK") and (x_read == "X AXIS OK") and (sayStatus == 4)):
+    if ((y_read == "Y AXIS OK") and (x_read == "X AXIS OK") and (sayStatus == 4)):
         say("Your hand should be on the knob. You are ready to open the door.")
         sayStatus = 5
         return str("Y AXIS: Correct / X AXIS: Correct.")
     else:
         return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)
-    """
-    
+        
     # print("Y AXIS:", y_read, "X AXIS", x_read) #Uncomment to test.
 
 def say(text):
