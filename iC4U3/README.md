@@ -24,7 +24,7 @@ _Tasks by [IAADP](https://iaadp.org/membership/iaadp-minimum-training-standards-
 - [x] ~Test the code.~ __TEST FAILED__ _Done on 09/23/23_
 - [x] ~Improve code for the guide dog guides the person's hand on the door knob.~ _Done on 11/14/23_
 - [x] ~Test the new code.~ __SUCCESSFUL__ _Done on 11/14/23_
-- [ ] Add sound guide code for testing purposes.
+- [x] ~Add sound guide code for testing purposes.~ _Done on 11/26/23_
 - [ ] Final test
 - [ ] Take a promotional video.
 
