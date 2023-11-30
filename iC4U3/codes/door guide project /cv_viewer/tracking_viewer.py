@@ -10,8 +10,8 @@ import cv_viewer.exporter as exporter
 
 df_labels = pd.read_csv("/home/ic4u/zed/codes/ic4u_DoorGuide/cv_viewer/DoorDetection-Labels.csv")
 
-textHandPos = None
-textKnobPos = None
+textHandPos = 0
+textKnobPos = 0
 
 # ----------------------------------------------------------------------
 #       2D LEFT VIEW

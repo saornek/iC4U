@@ -1,8 +1,8 @@
 """
 Author: saornek
 Date: 08/04/2023
-Last Updated: 11/26/2023
-Status: Working --> Last message needs testing.
+Last Updated: 11/30/2023
+Status: Working.
 Purpose: iC4U3 Door Guide Project - Give distance between a visually impaired person's hand and the door knob.
 Update: Cleaned and formatted. Horizontal and Vertical Correction Working.
 Notes:
@@ -59,17 +59,11 @@ def values(x_value, y_value):
         sayStatus = 3
         prev_x_read = x_read
     elif (x_read != prev_x_read) and (x_read == "X AXIS OK") and (sayStatus == 3):
-        say("Your hand is correct horizontaly.")
+        say("Your hand is correct horizontaly. Your hand should be on the knob. You are ready to open the door.")
         sayStatus = 4
         prev_x_read = x_read
 
-    if ((y_read == "Y AXIS OK") and (x_read == "X AXIS OK") and (sayStatus == 4)):
-        say("Your hand should be on the knob. You are ready to open the door.")
-        sayStatus = 5
-        return str("Y AXIS: Correct / X AXIS: Correct.")
-    else:
-        return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)
-        
+    return str("Y AXIS: " + y_read + " / X AXIS: " + x_read)    
     # print("Y AXIS:", y_read, "X AXIS", x_read) #Uncomment to test.
 
 def say(text):
