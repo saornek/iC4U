@@ -25,8 +25,8 @@ _Tasks by [IAADP](https://iaadp.org/membership/iaadp-minimum-training-standards-
 - [x] ~Improve code for the guide dog guides the person's hand on the door knob.~ _Done on 11/14/23_
 - [x] ~Test the new code.~ __SUCCESSFUL__ _Done on 11/14/23_
 - [x] ~Add sound guide code for testing purposes.~ _Done on 11/26/23_
-- [x] Final test _Done on 11/30/23_
-- [x] Take a promotional video. _Done on 11/30/23_
+- [x] ~Final test~ _Done on 11/30/23_
+- [x] ~Take a promotional video.~ _Done on 11/30/23_
 
 ### To-Do For Elevator Tracker*
 - [x] ~_Create a new dataset._ __Used premade public dataset__~ _Completed on 11/13/23_
