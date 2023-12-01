@@ -44,6 +44,18 @@ Description: iC4U movements are controlled by mecanum motors.
 
 YouTube Video: [iC4U's Mecanum Library](https://www.youtube.com/watch?v=rL-WXS1ft9E)
 
+## Project 8: iC4U Getting Through Door Assistance
+
+Description: One of the challenges faced by visually impaired people is finding door knobs. So, ic4u is here to help with voice assistance.
+
+YouTube Video: [iC4U's Getting Through Door Assistance v0](https://www.youtube.com/watch?v=5OtorFvz4qY)
+
+YouTube Video: [iC4U's Getting Through Door Assistance v1](https://www.youtube.com/watch?v=_mveQDFDQB8)
+
+## Project 9: iC4U Elevator Guide
+
+_Loading_
+
 ---
 
 ## Templates
