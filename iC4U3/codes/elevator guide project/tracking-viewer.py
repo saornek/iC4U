@@ -6,12 +6,11 @@ import pyzed.sl as sl
 import math
 from collections import deque
 import pandas as pd
+from cv_viewer.talk import say #for test purposes
 
-from pygame import mixer #for test purposes
-from gtts import gTTS #for test purposes
-
-global prevObjectState
 prevObjectState = False
+prevObjectLabel = ""
+
 
 df_labels = pd.read_csv("/home/ic4u/zed/codes/ic4u_ElevatorGuide/cv_viewer/elevatorguideweight-labels.csv")
 # ----------------------------------------------------------------------
@@ -66,23 +65,24 @@ def render_2D(left_display, img_scale, objects, is_tracking_on):
 
             overlay_roi[:, :, :] = base_color
 
+            global prevObjectLabel
+            global prevObjectState
+
             # Display Object label as text
             isClassFound = df_labels.isin([obj.raw_label]).any().any()
             if (isClassFound == True):
                 objectQueue = df_labels.loc[df_labels.classid == obj.raw_label, 'queue'].values[0]
                 objectState = df_labels.loc[df_labels.classid == obj.raw_label, 'label'].values[0]
-                text = str(objectState)
 
-                if objectQueue == 0:
-                    say(objectState)
-                    print(objectState)
-                    prevObjectState = False
-                elif objectQueue == 2 and prevObjectState == True:
-                    say("Open and", objectState)
-                    print("Open and", objectState)
-                    prevObjectState = False
-                else:
-                    prevObjectState = True
+                text = str(objectState)
+                if  prevObjectLabel != objectState:
+                    if obj.raw_label == 1:
+                        say(objectState)   
+                        prevObjectLabel = objectState  
+                    else:
+                        if obj.confidence > 50:
+                            say(objectState)
+                            prevObjectLabel = objectState
             else:
                 print("Class not found.")
                 text = "class " + str(obj.raw_label)
@@ -101,14 +101,6 @@ def render_2D(left_display, img_scale, objects, is_tracking_on):
 
     # Here, overlay is as the left image, but with opaque masks on each detected objects
     cv2.addWeighted(left_display, 1, overlay, 0.2, 0.0, left_display)
-
-    def say(text): #for test purposes
-        tts = gTTS(text=text, lang='en')
-        audio_file = 'output.mp3'
-        tts.save(audio_file)
-        sound = mixer.Sound('output.mp3')
-        sound.play()
-
 
 # ----------------------------------------------------------------------
 #       2D TRACKING VIEW
