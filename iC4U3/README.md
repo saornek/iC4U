@@ -35,7 +35,7 @@ _Tasks by [IAADP](https://iaadp.org/membership/iaadp-minimum-training-standards-
 - [x] ~Train the dataset to a pytorch weight.~ _Done on 11/13/23_
 - [x] ~Write a code for iC4U to inform the person of the elevator and its state.~ _Done on 12/09/23_
 - [x] ~Test the code~ _Done on 12/10/23_
-- [ ] Take a promotional video.
+- [x] ~Take a promotional video.~ _Done on 12/12/23_
 
 The Dataset was made on Roboflow by user elevator. Link: [https://universe.roboflow.com/elevator-0iq4p/elevator-status](https://universe.roboflow.com/elevator-0iq4p/elevator-status)
 

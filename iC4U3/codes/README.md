@@ -54,7 +54,9 @@ YouTube Video: [iC4U's Getting Through Door Assistance v1](https://www.youtube.c
 
 ## Project 9: iC4U Elevator Guide
 
-_Loading_
+One of the guide dog's tasks is to assist visually impaired people in using an elevator. So, #ic4u is here to help again.
+
+YouTube Video: [iC4U Elevator Assistance](https://www.youtube.com/watch?v=m_E1LVGupS4)
 
 ---
 
